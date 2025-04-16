@@ -1,0 +1,7 @@
+{
+  "name": "PROG2005-Assessment3-InventoryApp-Ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
