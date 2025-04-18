@@ -13,14 +13,14 @@ export enum StockStatus {
   }
   
 export interface InventoryItem {
-    itemId?: number;
+    itemId: number;
     itemName: string;
     category: Category;
     quantity: number;
     price: number;
     supplierName: string;
     stockStatus: StockStatus;
-    featuredItem?: boolean;
+    featuredItem: boolean;
     specialNote?: string;
   }
   
