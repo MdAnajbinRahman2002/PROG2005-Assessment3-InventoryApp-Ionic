@@ -42,5 +42,13 @@ export class Tab1Page {
         specialNote: "Gaming"
       }
     ];
+    this.filteredItems = this.inventoryItems;
+  }
+  
+  filterItems() {
+    // Filter based on search term
+    this.filteredItems = this.inventoryItems.filter(item => 
+      item.itemName.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
   }
 }
