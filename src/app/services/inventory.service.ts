@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 
 export class DataService {
-    url : string = "https://prog2005.it.scu.edu.au/ArtGallery/";
+    url : string = "https://prog2005.it.scu.edu.au/ArtGalley";
     constructor(private http: HttpClient) {}
 
    // Get all inventory items
