@@ -20,9 +20,20 @@ export class Tab1Page {
 
   initializeItems() {
     this.dataService.getAllItems().subscribe(
-      (items) => {
-        this.inventoryItems = items;
-        this.filteredItems = this.inventoryItems;
+      (items: any[]) => {
+        console.log('Raw API response:', items);
+        this.inventoryItems = items.map(item => ({
+          itemId: item.item_id,
+          itemName: item.item_name,
+          category: item.category as Category,
+          quantity: item.quantity,
+          price: item.price,
+          supplierName: item.supplier_name,
+          stockStatus: item.stock_status as StockStatus,
+          featuredItem: Boolean(item.featured_item),
+          specialNote: item.special_note
+        }));
+        this.filteredItems = [...this.inventoryItems];
       },
       (error) => {
         console.error('Error fetching items:', error);

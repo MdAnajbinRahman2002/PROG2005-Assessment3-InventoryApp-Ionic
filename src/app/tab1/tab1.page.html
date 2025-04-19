@@ -19,11 +19,11 @@
         <h2> {{ item.itemId }} : {{ item.itemName }}</h2>
         <p>Category: {{ item.category }}</p>
         <p>Quantity: {{ item.quantity }}</p>
-        <p>Price: $ {{ item.price }}</p>
-        <p>Supplier: {{ item.supplierName }}</p>
+        <p>Price: {{ item.price | currency }}</p>
+        <p>Supplier: {{ item.supplierName || 'No Info'}}</p>
         <p>Status: {{ item.stockStatus }}</p>
         <p>Featured Item: {{item.featuredItem ? 'Yes' : 'No'}}</p>
-        <p>Special Note: {{item.specialNote}}</p>
+        <p>Special Note: {{item.specialNote || 'None'}}</p>
       </ion-label>
     </ion-item>
   </ion-list> 
