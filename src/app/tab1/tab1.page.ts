@@ -22,7 +22,7 @@ export class Tab1Page {
     this.dataService.getAllItems().subscribe(
       (items) => {
         this.inventoryItems = items;
-        this.filteredItems = items;
+        this.filteredItems = this.inventoryItems;
       },
       (error) => {
         console.error('Error fetching items:', error);
