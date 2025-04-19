@@ -1,17 +1,71 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-title>Update/Delete Item</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <!-- Search bar -->
+  <ion-item>
+    <ion-label position="floating">Search Item Name</ion-label>
+    <ion-input [(ngModel)]="searchName" type="text"></ion-input>
+  </ion-item>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-button expand="block" (click)="searchItem()">Search</ion-button>
+
+  <!-- Inventory Form -->
+  <div *ngIf="item">
+    <!-- Item ID (readonly) -->
+    <ion-item>
+      <ion-label position="stacked">Item ID</ion-label>
+      <ion-input [value]="item.item_id" readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Category</ion-label>
+      <ion-select [(ngModel)]="item.category">
+        <ion-select-option *ngFor="let category of categories" [value]="category">
+          {{ category }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Quantity</ion-label>
+      <ion-input type="number" [(ngModel)]="item.quantity"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Price</ion-label>
+      <ion-input type="number" [(ngModel)]="item.price"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Supplier Name</ion-label>
+      <ion-input type="text" [(ngModel)]="item.supplier_name"></ion-input>
+    </ion-item>
+
+    <!-- ✅ FIXED: stock_status binding -->
+    <ion-item>
+      <ion-label position="stacked">Stock Status</ion-label>
+      <ion-select [(ngModel)]="item.stock_status">
+        <ion-select-option *ngFor="let status of stockStatuses" [value]="status">
+          {{ status }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Featured Item</ion-label>
+      <ion-toggle [(ngModel)]="item.featuredItem" [checked]="item.featuredItem === 1"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Special Note</ion-label>
+      <ion-textarea [(ngModel)]="item.special_note"></ion-textarea>
+    </ion-item>
+
+    <ion-button expand="block" color="primary" (click)="updateItem()">Update</ion-button>
+    <ion-button expand="block" color="danger" (click)="confirmDelete()">Delete</ion-button>
+  </div>
 </ion-content>
