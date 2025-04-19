@@ -1,3 +1,4 @@
+// Category can only be in the following values.
 export enum Category {
     Electronics = 'Electronics',
     Furniture = 'Furniture',
@@ -5,7 +6,8 @@ export enum Category {
     Tools = 'Tools',
     Miscellaneous = 'Miscellaneous'
   }
-  
+
+// stock can only be in the following values.
 export enum StockStatus {
     InStock = 'In Stock',
     LowStock = 'Low Stock',
@@ -15,12 +17,12 @@ export enum StockStatus {
 export interface InventoryItem {
     itemId: number;
     itemName: string;
-    category: Category;
+    category: Category; //Category enums
     quantity: number;
     price: number;
     supplierName: string;
-    stockStatus: StockStatus;
+    stockStatus: StockStatus; //StockStatus enums
     featuredItem: boolean;
-    specialNote?: string;
+    specialNote?: string; //optional
   }
   
