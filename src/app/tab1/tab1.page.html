@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
       Inventory List
@@ -6,42 +6,39 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <ion-searchbar 
-  [(ngModel)]="searchTerm" 
-  (ionInput)="filterItems()" 
-  placeholder="Search items">
+    [(ngModel)]="searchTerm" 
+    (ionInput)="filterItems()" 
+    placeholder="Search items">
   </ion-searchbar>
 
-  <div class="table-container">
-    <table border="1" width="100%">
-      <thead>
-        <tr>
-          <th>Item ID</th>
-          <th>Item Name</th>
-          <th>Category</th>
-          <th>Quantity</th>
-          <th>Price</th>
-          <th>Supplier</th>
-          <th>Status</th>
-          <th>Featured</th>
-          <th>Special Note</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of filteredItems">
-          <td>{{ item.itemId }}</td>
-          <td>{{ item.itemName }}</td>
-          <td>{{ item.category }}</td>
-          <td>{{ item.quantity }}</td>
-          <td>{{ item.price | currency }}</td>
-          <td>{{ item.supplierName || 'N/A' }}</td>
-          <td>{{ item.stockStatus}}</td>
-          <td>{{ item.featuredItem ? 'Yes' : 'No' }}</td>
-          <td>{{item.specialNote}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
+  <table border="1" width="100%">
+    <thead>
+      <tr>
+        <th>Item ID</th>
+        <th>Item Name</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Supplier</th>
+        <th>Status</th>
+        <th>Featured</th>
+        <th>Special Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of filteredItems">
+        <td>{{ item.itemId }}</td>
+        <td>{{ item.itemName }}</td>
+        <td>{{ item.category }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.price | currency }}</td>
+        <td>{{ item.supplierName || 'N/A' }}</td>
+        <td>{{ item.stockStatus }}</td>
+        <td>{{ item.featuredItem ? 'Yes' : 'No' }}</td>
+        <td>{{ item.specialNote }}</td>
+      </tr>
+    </tbody>
+  </table>
 </ion-content>
