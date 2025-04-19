@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title align="center">Adding New Item into dataset</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -8,12 +8,10 @@
 
 <ion-content class="ion-padding">
 
-  <!-- Success Message -->
-  <div *ngIf="showSuccessMessage" style="color: rgb(180, 10, 10); font-weight: bold;">
+  <div *ngIf="showSuccessMessage">
     Item has been added successfully! Thanks
   </div>
 
-  <!-- Add Item Form -->
   <form (ngSubmit)="addItem()" #itemForm="ngForm">
     <ion-item>
       <ion-label position="floating">- Item Name*</ion-label>
@@ -62,7 +60,6 @@
     <ion-button expand="full" type="submit" [disabled]="!itemForm.valid">Add Item</ion-button>
   </form>
 
-  <!--DISPLAY ALL ITENS-->
   <h2>All Items avaiable</h2>
   <table border="1" width="100%">
     <thead>
@@ -70,42 +67,42 @@
         <th>Item ID</th>
         <th>Item Name</th>
         <th>Category</th>
-        <th >Quantity</th>
+        <th>Quantity</th>
         <th>Price</th>
         <th>Supplier</th>
         <th>Status</th>
-        <th >Featured</th>
+        <th>Featured</th>
+        <th>Special Note</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of allItems">
-        <td style="margin: 20px;">{{ item.itemId }}</td>
-        <td style="margin: 20px;">{{ item.itemName }}</td>
-        <td style="margin: 20px;">{{ item.category }}</td>
-        <td align="center">{{ item.quantity }}</td>
-        <td align="center">{{ item.price }}</td>
-        <td style="margin: 20px;">{{ item.supplierName }}</td>
-        <td align="center">{{ item.stockStatus }}</td>
-        <td align="center">{{ item.featuredItem == 1 ? 'Yes' : 'No' }}</td>
+        <td>{{ item.itemId }}</td>
+        <td>{{ item.itemName }}</td>
+        <td>{{ item.category }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.price }}</td>
+        <td>{{ item.supplierName }}</td>
+        <td>{{ item.stockStatus }}</td>
+        <td>{{ item.featuredItem? 'Yes' : 'No' }}</td>
+        <td>{{item.specialNote}}</td>
       </tr>
     </tbody>
   </table>
 
-
-  <!--  Table to display All Featured Items -->
   <h2> All Featured Items</h2>
   <table border="1" width="100%">
     <thead>
       <tr>
-    <th>Item Name</th>
-    <th>Category</th>
-  </tr>
-</thead>
-<tbody>
-  <tr *ngFor="let item of featuredItems">
-    <td>{{ item.itemName }}</td>
-    <td align="center">{{ item.category }}</td>
-  </tr>
-</tbody>
+        <th>Item Name</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of featuredItems">
+        <td>{{ item.itemName }}</td>
+        <td>{{ item.category }}</td>
+      </tr>
+    </tbody>
   </table>
 </ion-content>
