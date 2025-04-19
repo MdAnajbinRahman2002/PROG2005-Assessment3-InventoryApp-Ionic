@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 
 export class DataService {
-    url : string = "http://prog2005.it.scu.eud.au/DataServ/";
+    url : string = "http://prog2005.it.scu.edu.au/ArtGallery/";
 
     constructor(private http: HttpClient) {}
 
@@ -31,6 +31,4 @@ export class DataService {
   updateItem(itemName: string, item: InventoryItem): Observable<InventoryItem> {
     return this.http.put<InventoryItem>(`${this.url}/${itemName}`, item);
   }
-
-
 }
