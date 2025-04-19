@@ -1,11 +1,11 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Update/Delete Item</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <!-- Search bar -->
+
   <ion-item>
     <ion-label position="floating">Search Item Name</ion-label>
     <ion-input [(ngModel)]="searchName" type="text"></ion-input>
@@ -13,9 +13,7 @@
 
   <ion-button expand="block" (click)="searchItem()">Search</ion-button>
 
-  <!-- Inventory Form -->
   <div *ngIf="item">
-    <!-- Item ID (readonly) -->
     <ion-item>
       <ion-label position="stacked">Item ID</ion-label>
       <ion-input [value]="item.item_id" readonly></ion-input>
@@ -45,7 +43,6 @@
       <ion-input type="text" [(ngModel)]="item.supplier_name"></ion-input>
     </ion-item>
 
-    <!-- ✅ FIXED: stock_status binding -->
     <ion-item>
       <ion-label position="stacked">Stock Status</ion-label>
       <ion-select [(ngModel)]="item.stock_status">
@@ -65,7 +62,7 @@
       <ion-textarea [(ngModel)]="item.special_note"></ion-textarea>
     </ion-item>
 
-    <ion-button expand="block" color="primary" (click)="updateItem()">Update</ion-button>
+    <ion-button expand="block" color="success" (click)="updateItem()">Update</ion-button>
     <ion-button expand="block" color="danger" (click)="confirmDelete()">Delete</ion-button>
   </div>
 </ion-content>

@@ -1,0 +1,56 @@
+/* tab3.page.scss */
+
+ion-label {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+ion-item {
+  --padding-start: 12px;
+  --inner-padding-end: 12px;
+  --background: #f8f8f8;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+ion-input, ion-select, ion-textarea {
+  font-size: 1rem;
+}
+
+/* Search and Action buttons */
+ion-button {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+ion-button.search-btn {
+  background-color: #000; /* black button */
+  color: white;
+}
+
+ion-button.update-btn {
+  background-color: #007bff; /* blue button */
+  color: white;
+}
+
+ion-button.delete-btn {
+  background-color: #dc3545; /* red button */
+  color: white;
+}
+
+/* Make popup more readable */
+.custom-popup-text {
+  text-align: left;
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+::ng-deep .alert-wrapper {
+  font-size: 15px;
+  white-space: pre-wrap; // important to preserve \n formatting
+  text-align: left;
+  line-height: 1.5;
+  padding: 10px;
+}
