@@ -7,7 +7,11 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterItems()" placeholder="Search by name"></ion-searchbar>
+  <ion-searchbar 
+  [(ngModel)]="searchTerm" 
+  (ionInput)="filterItems()" 
+  placeholder="Search items">
+  </ion-searchbar>
 
   <ion-list>
     <ion-item *ngFor="let item of filteredItems">
@@ -22,5 +26,5 @@
         <p>Special Note: {{item.specialNote}}</p>
       </ion-label>
     </ion-item>
-  </ion-list>
+  </ion-list> 
 </ion-content>
