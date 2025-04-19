@@ -28,6 +28,6 @@ export interface InventoryItem
     supplierName: string;         
     stockStatus: StockStatus;           //stockStatus enums
     featuredItem: number;              //1 , 0 
-    specialNote?: string;             //optional note 
+    specialNote: string;             //optional note 
   }
   
