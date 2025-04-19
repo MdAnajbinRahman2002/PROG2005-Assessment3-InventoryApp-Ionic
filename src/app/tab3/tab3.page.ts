@@ -15,71 +15,35 @@ export class Tab3Page {
   categories = ['Electronics', 'Furniture', 'Clothing', 'Tools', 'Miscellaneous'];
   stockStatuses = ['In Stock', 'Low Stock', 'Out of Stock'];
 
-  constructor(private http: HttpClient, private alertCtrl: AlertController) {
-    this.showUsagePopup(); // Show usage popup on load
-  }
-
-  async showUsagePopup() {
-    const alert = await this.alertCtrl.create({
-      header: '🔧 How to Use This Page',
-      message: 
-  `📌 SEARCH:
-  Type the item name and tap "Search" to view details.
-  
-  ✏️ UPDATE:
-  Modify fields like price, quantity, category, supplier, etc., then tap "Update".
-  
-  🗑️ DELETE:
-  Tap "Delete" to remove items.
-  Note: You cannot delete the protected item "Laptop".
-  
-  🆔 NOTE:
-  The "Item ID" is auto-generated and cannot be changed.`,
-      buttons: ['Got it!'],
-      cssClass: 'custom-alert'
-    });
-
-    await alert.present();
-  }
-
-  normalizeStockStatus(status: string): string {
-    const match = this.stockStatuses.find(
-      s => s.toLowerCase() === (status || '').toLowerCase()
-    );
-    return match || 'In Stock';
-  }
+  constructor(private http: HttpClient, private alertCtrl: AlertController) {}
 
   searchItem() {
     if (!this.searchName.trim()) return;
 
     this.http.get(`https://prog2005.it.scu.edu.au/ArtGalley/${this.searchName}`).subscribe(
-      async (data: any) => {
+      (data: any) => {
+        console.log('Fetched item:', data);
         this.item = Array.isArray(data) ? data[0] : data;
 
-        if (!this.item || Object.keys(this.item).length === 0) {
-          this.item = null;
-          await this.showNotFoundAlert();
-          return;
+        // Normalize toggle and dropdown values
+        if (this.item) {
+          this.item.featuredItem = this.item.featured_item === 1;
+          this.item.stock_status = this.normalizeStockStatus(this.item.stock_status);
         }
-
-        this.item.featuredItem = this.item.featured_item === 1;
-        this.item.stock_status = this.normalizeStockStatus(this.item.stock_status);
       },
-      async () => {
+      () => {
         this.item = null;
-        await this.showNotFoundAlert();
+        alert('Item not found!');
       }
     );
   }
 
-  async showNotFoundAlert() {
-    const alert = await this.alertCtrl.create({
-      header: '❌ Item Not Found',
-      message: `No item found with the name "${this.searchName}". Please try again.`,
-      buttons: ['OK'],
-      cssClass: 'custom-alert'
-    });
-    await alert.present();
+  // Optional: Helps match the select dropdown for stock_status
+  normalizeStockStatus(status: string): string {
+    const match = this.stockStatuses.find(
+      s => s.toLowerCase() === (status || '').toLowerCase()
+    );
+    return match || 'In Stock'; // Default fallback
   }
 
   updateItem() {
