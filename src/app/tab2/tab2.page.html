@@ -1,3 +1,8 @@
+
+<!-- TAB 2 - Ionic Application-->
+ <!-- Group Work - Assessment#3 Group work-->
+ <!-- Adding items into data Set-->
+  <!--Header-->
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title align="center">Adding New Item into dataset</ion-title>
@@ -14,39 +19,41 @@
 
   <form (ngSubmit)="addItem()" #itemForm="ngForm">
     <ion-item>
-      <ion-label position="floating">- Item Name*</ion-label>
+      <ion-label position="floating">- Item Name</ion-label>
       <ion-input type="text" [(ngModel)]="newItem.itemName" name="itemName" required></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label>- Category*</ion-label>
+      <ion-label>- Category</ion-label>
       <ion-select [(ngModel)]="newItem.category" name="category" required>
         <ion-select-option *ngFor="let cat of categories" [value]="cat">{{ cat }}</ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">- Quantity*</ion-label>
+      <ion-label position="floating">- Quantity</ion-label>
       <ion-input type="number" [(ngModel)]="newItem.quantity" name="quantity" required></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">- Price*</ion-label>
+      <ion-label position="floating">- Price</ion-label>
       <ion-input type="number" [(ngModel)]="newItem.price" name="price" required></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">- Supplier Name*</ion-label>
+      <ion-label position="floating">- Supplier Name</ion-label>
       <ion-input type="text" [(ngModel)]="newItem.supplierName" name="supplierName" required></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label>- Stock Status*</ion-label>
+      <ion-label>- Stock Status</ion-label>
       <ion-select [(ngModel)]="newItem.stockStatus" name="stockStatus" required>
         <ion-select-option *ngFor="let status of stockStatuses" [value]="status">{{status}}</ion-select-option>
       </ion-select>
     </ion-item>
 
+
+<!-- this code is for the toggle button-->
     <ion-item>
       <ion-label>Featured</ion-label>
       <ion-toggle [(ngModel)]="newItem.featuredItem" name="featuredItem"></ion-toggle>
@@ -60,10 +67,15 @@
     <ion-button expand="full" type="submit" [disabled]="!itemForm.valid">Add Item</ion-button>
   </form>
 
+
+<!--this is responsible to display the table with all items-->
+<!-- heading-->
   <h2>All Available Items</h2>
+  <!--table-->
   <table border="1" width="100%">
     <thead>
       <tr>
+        <!-- th- table headings-->
         <th>Item ID</th>
         <th>Item Name</th>
         <th>Category</th>
@@ -76,20 +88,22 @@
       </tr>
     </thead>
     <tbody>
+      <!--body, make sure the name are correctly written-->
       <tr *ngFor="let item of allItems">
-        <td>{{ item.itemId }}</td>
-        <td>{{ item.itemName }}</td>
-        <td>{{ item.category }}</td>
-        <td>{{ item.quantity }}</td>
-        <td>{{ item.price }}</td>
-        <td>{{ item.supplierName }}</td>
-        <td>{{ item.stockStatus }}</td>
-        <td>{{ item.featuredItem? 'Yes' : 'No' }}</td>
+        <td>{{item.itemId}}</td>
+        <td>{{ item.itemName}}</td>
+        <td>{{item.category}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.price }}</td>
+        <td>{{item.supplierName}}</td>
+        <td>{{item.stockStatus}}</td>
+        <td>{{item.featuredItem? 'Yes':'No' }}</td>
         <td>{{item.specialNote}}</td>
       </tr>
     </tbody>
   </table>
 
+<!-- following code will display tbale for all the featured items-->
   <h2> All Featured Items</h2>
   <table border="1" width="100%">
     <thead>
@@ -106,8 +120,9 @@
     </tbody>
   </table>
 
+<!--code for help button-->
   <ion-button expand="full" color="primary" (click)="showHelp()">
-    Help
+    Help!!!
   </ion-button>
   
 </ion-content>
