@@ -149,8 +149,16 @@ export class Tab2Page
     await alert.present();
   }
 
-  showHelp()
-   {
-    
+  async showHelp() {
+    const alert = await this.alertController.create({
+      header: 'Help TAB 2 - Add Items',
+      message: `
+        ~ fill all the values to add an item into the 
+      `,
+      buttons: ['Understood'],
+      cssClass: 'custom-alert'
+    });
+  
+    await alert.present();
   }
-}
+}  
