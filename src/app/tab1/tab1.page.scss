@@ -1,0 +1,47 @@
+ion-content {
+    --background: #ffffff;
+  }
+  
+  .section-title {
+    color: var(--ion-color-primary);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  
+  .description {
+    color: var(--ion-color-medium);
+    margin-bottom: 24px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: white;
+    
+    thead {
+      background: var(--ion-color-primary);
+      color: white;
+      
+      th {
+        padding: 12px;
+        text-align: left;
+      }
+    }
+    
+    tbody {
+      tr {
+        border-bottom: 1px solid #eee;
+        
+        td {
+          padding: 12px;
+        }
+      }
+    }
+  }
+  
+  ion-searchbar {
+    padding: 0;
+    margin-bottom: 16px;
+  }
