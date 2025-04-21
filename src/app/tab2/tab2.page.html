@@ -23,36 +23,37 @@
     Item has been added successfully! Thanks
   </div>
 
-  <!--form to add new item in inventory-->
-  
+  <!--add new item in inventory-->
+  <!--form will collect all the values-->
+  <!--Item name-->
   <form (ngSubmit)="addItem()" #itemForm="ngForm">
     <ion-item>
       <ion-label position="floating">- Item Name</ion-label>
       <ion-input type="text" [(ngModel)]="newItem.itemName" name="itemName" required></ion-input>
     </ion-item>
-
+<!--category-->
     <ion-item>
       <ion-label>- Category</ion-label>
       <ion-select [(ngModel)]="newItem.category" name="category" required>
         <ion-select-option *ngFor="let cat of categories" [value]="cat">{{ cat }}</ion-select-option>
       </ion-select>
     </ion-item>
-
+<!--quantity-->
     <ion-item>
       <ion-label position="floating">- Quantity</ion-label>
       <ion-input type="number" [(ngModel)]="newItem.quantity" name="quantity" required></ion-input>
     </ion-item>
-
+<!--price-->
     <ion-item>
       <ion-label position="floating">- Price</ion-label>
       <ion-input type="number" [(ngModel)]="newItem.price" name="price" required></ion-input>
     </ion-item>
-
+<!--supplier name-->
     <ion-item>
       <ion-label position="floating">- Supplier Name</ion-label>
       <ion-input type="text" [(ngModel)]="newItem.supplierName" name="supplierName" required></ion-input>
     </ion-item>
-
+<!--stock status-->
     <ion-item>
       <ion-label>- Stock Status</ion-label>
       <ion-select [(ngModel)]="newItem.stockStatus" name="stockStatus" required>
@@ -60,18 +61,18 @@
       </ion-select>
     </ion-item>
 
-
 <!-- this code is for the toggle button-->
+ <!--feature item-->
     <ion-item>
       <ion-label>Featured</ion-label>
       <ion-toggle [(ngModel)]="newItem.featuredItem" name="featuredItem"></ion-toggle>
     </ion-item>
-
+<!--special note-->
     <ion-item>
       <ion-label position="floating">Special Note</ion-label>
       <ion-input type="text" [(ngModel)]="newItem.specialNote" name="specialNote"></ion-input>
     </ion-item>
-
+<!--special note-->
     <ion-button expand="full" type="submit" [disabled]="!itemForm.valid">Add Item</ion-button>
   </form>
 
@@ -95,6 +96,7 @@
         <th>Special Note</th>
       </tr>
     </thead>
+    
     <tbody>
       <!--body, make sure the name are correctly written-->
       <tr *ngFor="let item of allItems">
