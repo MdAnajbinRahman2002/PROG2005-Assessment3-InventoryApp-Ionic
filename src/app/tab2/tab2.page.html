@@ -81,37 +81,39 @@
 <!-- heading-->
   <h2>All Available Items</h2>
   <!--table-->
-  <table border="1" width="100%">
-    <thead>
-      <tr>
-        <!-- th- table headings-->
-        <th>Item ID</th>
-        <th>Item Name</th>
-        <th>Category</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Supplier</th>
-        <th>Status</th>
-        <th>Featured</th>
-        <th>Special Note</th>
-      </tr>
-    </thead>
-    
-    <tbody>
-      <!--body, make sure the name are correctly written-->
-      <tr *ngFor="let item of allItems">
-        <td>{{item.itemId}}</td>
-        <td>{{ item.itemName}}</td>
-        <td>{{item.category}}</td>
-        <td>{{item.quantity}}</td>
-        <td>{{item.price }}</td>
-        <td>{{item.supplierName}}</td>
-        <td>{{item.stockStatus}}</td>
-        <td>{{item.featuredItem? 'Yes':'No' }}</td>
-        <td>{{item.specialNote}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table border="1">
+      <thead>
+        <tr>
+          <!-- th- table headings-->
+          <th>Item ID</th>
+          <th>Item Name</th>
+          <th>Category</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Supplier</th>
+          <th>Status</th>
+          <th>Featured</th>
+          <th>Special Note</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <!--body, make sure the name are correctly written-->
+        <tr *ngFor="let item of allItems">
+          <td>{{item.itemId}}</td>
+          <td>{{ item.itemName}}</td>
+          <td>{{item.category}}</td>
+          <td>{{item.quantity}}</td>
+          <td>{{item.price }}</td>
+          <td>{{item.supplierName}}</td>
+          <td>{{item.stockStatus}}</td>
+          <td>{{item.featuredItem? 'Yes':'No' }}</td>
+          <td>{{item.specialNote}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 <!-- following code will display tbale for all the featured items-->
   <h2> All Featured Items</h2>

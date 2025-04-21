@@ -1,6 +1,12 @@
+.table-container {
+  margin: 20px auto;
+  overflow-x: auto;
+  padding: 10px;
+  background-color: #ffffff;
+}
 
-  table {
-    width: 90%;
+table {
+    width: 100%;
     margin: 20px auto;
     border-collapse: collapse;
     background-color: white;
@@ -8,7 +14,7 @@
 }
 
     th, td {
-        padding: 12px;
+        padding: 20px;
         text-align: left;
         border: 1px solid #ddd;
     }
@@ -29,17 +35,20 @@
   ion-searchbar {
     padding: 0;
     margin-bottom: 16px;
+    font-size: 10px;
   }
 
   @media (max-width: 768px) {
+    .table-container {
+        overflow-x: auto;
+    }
+
     table {
         width: 100%;
     }
-    th, td {
-      font-size: 0.9rem; /* Adjust font size for smaller screens */
-      padding: 10px; /* Reduce padding for smaller screens */
-    }
 
-    table-container {
-      overflow-x: auto;
+    th, td {
+        font-size: 15px;
+        padding: 15px;
     }
+}

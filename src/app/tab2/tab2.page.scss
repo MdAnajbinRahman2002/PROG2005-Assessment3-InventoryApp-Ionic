@@ -49,36 +49,6 @@ div[ngIf="showSuccessMessage"] {
   margin-bottom: 16px;
 }
 
-/*Table Styling */
-/*kept the original style form tab 1 table to make it seamless */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  background: white;
-  
-  thead {
-    background: var(--ion-color-primary);
-    color: white;
-    
-    th {
-      padding: 12px;
-      text-align: left;
-    }
-  }
-  
-  tbody {
-    tr {
-      border-bottom: 1px solid #eee;
-      
-      td {
-        padding: 12px;
-      }
-    }
-  }
-}
-
 /*Headings */
 h2 {
   color: #afbcd6;
@@ -86,4 +56,55 @@ h2 {
   font-size: 22px;
   font-weight: bold;
   text-align: left;
+}
+
+/*Table Styling */
+/*kept the original style form tab 1 table to make it seamless */
+.table-container {
+  margin: 20px auto;
+  overflow-x: auto;
+  padding: 10px;
+  background-color: #ffffff;
+}
+
+table {
+  width: 100%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 20px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #0091ff;
+  color: white;
+}
+
+td {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #e1e1e1;
+}
+
+@media (max-width: 768px) {
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+}
+
+th, td {
+    font-size: 15px;
+    padding: 15px;
+}
 }
