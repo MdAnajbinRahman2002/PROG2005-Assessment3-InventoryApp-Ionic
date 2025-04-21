@@ -91,7 +91,7 @@ export class Tab2Page
         next: () => 
         {
           this.showSuccessAlert('Item has been added successfully, Thanks');
-          this.resetForm();
+          this.resetForm(); //reset feilds
           this.loadItems(); //repopulate
         },
         error: (err) =>
