@@ -1,53 +1,71 @@
+/* Form Label Styling */
+ion-item ion-label,
 ion-label {
-  font-size: 1rem;
+  display: block;
+  font-size: 20px;
   font-weight: 600;
   margin-bottom: 4px;
   color: #333;
 }
 
+/* Form Field Containers */
 ion-item {
   --padding-start: 12px;
   --inner-padding-end: 12px;
-  --background: #f8f8f8;
+  --background: #ffffff;
   border-radius: 8px;
   margin-bottom: 12px;
 }
 
+/* Form Inputs */
 ion-input, ion-select, ion-textarea {
-  font-size: 1rem;
+  font-size: 20px;
+  color: black;
 }
 
-/* Search and Action buttons */
+/* Select text color */
+ion-select::part(text) {
+  color: black;
+}
+
+/* Button Styling */
 ion-button {
   font-weight: bold;
   letter-spacing: 1px;
 }
 
 ion-button.search-btn {
-  background-color: #000; /* black button */
+  background-color: #000;
   color: white;
 }
 
 ion-button.update-btn {
-  background-color: #007bff; /* blue button */
+  background-color: #007bff;
   color: white;
 }
 
 ion-button.delete-btn {
-  background-color: #dc3545; /* red button */
+  background-color: #dc3545;
   color: white;
 }
 
-/* Make popup more readable */
+/* Select popover styling */
+ion-select-popover ion-item {
+  --color: #000000; 
+}
+
+/* Popup Text */
 .custom-popup-text {
   text-align: left;
-  font-size: 1rem;
+  font-size: 15px;
   color: #444;
   line-height: 1.6;
 }
+
+/* Alert Styling */
 ::ng-deep .alert-wrapper {
   font-size: 15px;
-  white-space: pre-wrap; // important to preserve \n formatting
+  white-space: pre-wrap;
   text-align: left;
   line-height: 1.5;
   padding: 10px;
