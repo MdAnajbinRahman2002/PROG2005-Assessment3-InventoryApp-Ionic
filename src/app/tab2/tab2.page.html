@@ -2,6 +2,8 @@
 <!-- TAB 2 - Ionic Application-->
  <!-- Group Work - Assessment#3 Group work-->
  <!-- Adding items into data Set-->
+
+
   <!--Header-->
 <ion-header>
   <ion-toolbar color="primary">
@@ -9,14 +11,20 @@
   </ion-toolbar>
 </ion-header>
 
+<!--line about required fields-->
 <li>All fields with " * " should be filled </li>
 
+
+<!--Page Content-->
 <ion-content class="ion-padding">
 
+ <!--display confirmation message--> 
   <div *ngIf="showSuccessMessage">
     Item has been added successfully! Thanks
   </div>
 
+  <!--form to add new item in inventory-->
+  
   <form (ngSubmit)="addItem()" #itemForm="ngForm">
     <ion-item>
       <ion-label position="floating">- Item Name</ion-label>
